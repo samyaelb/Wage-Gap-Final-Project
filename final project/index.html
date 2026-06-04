@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wage Gap in the United States, 2014–2024</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+  <main>
+
+<!-- intro -->
+
+<section class="intro">
+  <p class="eyebrow">BLS Current Population Survey Analysis</p>
+
+  <h3 class="page-title">
+    Wage Gap in the United States, 2014–2024
+  </h3>
+
+  <p class="lede">
+    Wages play a major role in shaping quality of life, economic opportunity,
+    and financial security. Using data from the U.S. Bureau of Labor Statistics
+    Current Population Survey (CPS), this project examines how earnings and
+    employment outcomes have changed between 2014 and 2024 and whether wage
+    gaps between demographic groups have narrowed over time.
+  </p>
+
+  <p class="lede">
+    Through four interactive visualizations, we investigate several factors
+    that contribute to wage differences, including education, race, gender,
+    employment rates, and minimum-wage work. Rather than looking at a single
+    measure of inequality, these charts show how multiple characteristics can
+    influence earnings and how those relationships have evolved over the last
+    decade.
+  </p>
+
+  <p class="lede">
+    Our goal is to identify important trends, highlight persistent disparities,
+    and explore whether progress has been made toward greater wage equity.
+    Understanding these patterns can help inform conversations about labor
+    markets, economic policy, and opportunities for workers across different
+    demographic groups.
+  </p>
+</section>
+
+<!-- earnings chart and descriptions -->
+
+    <section class="hero">
+      <p class="eyebrow">BLS Highlights of Women’s Earnings</p>
+      <h1>From 2014 to 2024, earnings rose at every education level, but men still earned more.</h1>
+      <p class="lede">
+        Education is strongly tied to higher pay, but the gender gap does not disappear at higher levels of schooling.
+        This chart compares median usual weekly earnings for full-time wage and salary workers age 25 and older in 2014 and 2024.
+      </p>
+    </section>
+
+    <section class="chart-card">
+      <div id="educationChart"></div>
+      <p class="caption">
+        Each line connects 2014 to 2024 earnings for one education level and sex. Hover over a point to see exact median weekly earnings and the decade change.
+      </p>
+    </section>
+
+    <section class="takeaway">
+      <h2>Key takeaway</h2>
+      <p>
+        Workers with a bachelor’s degree or higher had the highest weekly earnings in both years, but the gap remained visible:
+        women with bachelor’s degrees or higher earned $1,479 per week in 2024, compared with $1,907 for men.
+        The women-to-men ratio improved slightly from 2014 to 2024 for most education groups, but no group reached parity.
+      </p>
+    </section>
+
+<!-- employment chart and description -->
+
+<section class="hero employment-hero">
+  <p class="eyebrow">BLS Employment-Population Ratio</p>
+
+  <h1 class="employment-title">
+    Employment rates have maintained a steady gap over the last ten years.
+  </h1>
+
+  <p class="lede">
+    Employment rates for both men and women increased gradually through the late
+    2010s, dropped sharply during the COVID-19 pandemic, and recovered in the
+    years that followed. While employment improved for both groups, men
+    consistently maintained higher employment rates throughout the decade.
+  </p>
+</section>
+
+<section class="chart-card">
+<div id="employmentChart"></div>
+
+<div class="employment-controls">
+  <label>
+    Year:
+    <span id="yearLabel">2014</span>
+  </label>
+
+  <input
+    type="range"
+    id="yearSlider"
+    min="2014"
+    max="2024"
+    value="2014"
+    step="1"
+  >
+</div>
+
+  <p class="caption">
+    Move the slider to reveal employment trends over time. Hover over any point
+    to view the employment rate for a specific year.
+  </p>
+</section>
+
+<section class="takeaway">
+  <h2>Key takeaway</h2>
+
+  <p>
+    Employment rates fell dramatically during the pandemic in 2020 for both men
+    and women. Although employment rebounded by 2024, men continued to maintain
+    employment rates roughly 10 percentage points higher than women throughout
+    the period.
+  </p>
+</section>
+
+<!-- wages chart and description -->
+
+<section class="hero wage-hero">
+  <p class="eyebrow">BLS Hourly Earnings by Race and Gender</p>
+
+  <h1>
+    Hourly wages increased across all racial groups from 2014 to 2024.
+  </h1>
+
+  <p class="lede">
+    Average hourly earnings rose steadily over the decade for workers of all
+    racial backgrounds. Use the gender buttons to compare wage trends for men
+    and women and explore how earnings changed across racial groups over time.
+  </p>
+</section>
+
+<section class="chart-card">
+
+  <div id="wageChart"></div>
+
+  <div class="gender-toggle">
+    <button id="womenBtn" class="active">Women</button>
+    <button id="menBtn">Men</button>
+  </div>
+
+  <div id="legend"></div>
+
+  <p class="caption">
+    Hover over any point to view the average hourly wage for a specific year,
+    race, and gender.
+  </p>
+
+</section>
+
+<section class="takeaway">
+  <h2>Key takeaway</h2>
+
+  <p>
+    Asian groups have the highest income for both Men and Women, even above White groups.
+    <br>Hispanic/Latino Women earn the lowest wages while Black/African American Men earn the lowest wages.
+    <br>Across all races Womens pay rate grew more than Men, Women's pay increased by 57% while Mens increased by 46%.
+    <br>The largest gap shrinkage was for White workers, the gap shrank by 5.6% between Men and Women.
+  </p>
+</section>
+
+<section class="hero minimumwage-hero">
+  <p class="eyebrow">BLS Federal Minimum Wage Workers</p>
+
+  <h1>
+    Total at or below the federal minimum wage declined substantially from 2014 to 2024.
+  </h1>
+
+  <p class="lede">
+    This chart shows the number of hourly paid wage and salary workers age 16 and older
+    earning at or below the federal minimum wage. While the total number of affected
+    workers decreased over the decade, women consistently represented a larger share of
+    workers earning minimum wage or less.
+  </p>
+</section>
+
+<section class="chart-card">
+
+<!-- minimum wage chart and description -->
+
+  <h2 class="flourish-title">
+    Total At or Below Federal Minimum Wage, 2014 to 2024
+  </h2>
+
+  <p class="flourish-subtitle">
+    The chart shows the number of men and women age 16 and older (in thousands)
+    earning at or below the federal minimum wage.
+  </p>
+
+  <div class="flourish-embed flourish-chart" data-src="visualisation/29244800">
+    <script src="https://public.flourish.studio/resources/embed.js"></script>
+    <noscript>
+      <img
+        src="https://public.flourish.studio/visualisation/29244800/thumbnail"
+        width="100%"
+        alt="Federal minimum wage chart"
+      />
+    </noscript>
+  </div>
+
+<div class="minimumwage-legend">
+  <div class="legend-item">
+    <span class="legend-color women-color"></span>
+    <span>Women</span>
+  </div>
+
+  <div class="legend-item">
+    <span class="legend-color men-color"></span>
+    <span>Men</span>
+  </div>
+</div>
+
+  <p class="caption">
+    The data includes hourly paid wage and salary workers age 16 and older who earned
+    at or below the federal minimum wage. The stacked bars show the distribution of
+    affected workers by gender across the decade.
+  </p>
+
+</section>
+
+<section class="takeaway">
+  <h2>Key takeaway</h2>
+
+  <p>
+    Although the number of workers earning at or below the federal minimum wage
+    declined substantially between 2014 and 2024, hundreds of thousands of workers
+    remained affected. Women consistently represented a larger share of minimum-wage
+    workers than men, highlighting persistent differences in wage distribution across
+    the labor force.
+  </p>
+</section>
+
+<!-- conclusion -->
+
+<section class="conclusion">
+  <h2>Overall Conclusion</h2>
+
+  <p>
+    Across all four analyses, the data shows that earnings and employment outcomes
+    improved between 2014 and 2024, but differences across gender and demographic
+    groups remain evident.
+  </p>
+
+  <ul>
+    <li>
+      Education is linked to higher weekly earnings for both women and men, but from 
+      2014 to 2024, women still earned less than men at every education level shown. 
+    </li>
+
+    <li>
+      Men maintained consistently higher employment-to-population ratios throughout the decade. The gap
+      remained steady with around 10 percent difference, even after the pandemic affected both groups.  
+    </li>
+
+    <li>
+      Hourly wages increased for all racial groups, though wage differences across
+      race and gender persisted over time.
+    </li>
+
+    <li>
+      The number of workers earning at or below the federal minimum wage declined
+      significantly, but women continued to represent a larger share of affected
+      workers.
+    </li>
+
+    <li>
+      Overall, the gender wage gap narrowed in several areas but did not disappear,
+      suggesting that education, race, employment patterns, and occupational
+      factors continue to influence earnings outcomes.
+    </li>
+  </ul>
+</section>
+
+<!-- source -->
+
+<footer>
+  <p>
+    Data source:
+    <a href="https://www.bls.gov/cps/" target="_blank" rel="noopener noreferrer">
+      U.S. Bureau of Labor Statistics
+    </a>,
+    <em>2014 to 2024</em>, Current Population Survey.
+  </p>
+</footer>
+  </main>
+
+<!-- tooltip -->
+
+  <div id="tooltip" role="status" aria-hidden="true"></div>
+  
+<!-- script -->
+  
+  <script src="main.js"></script>
+  
+</body>
+</html>

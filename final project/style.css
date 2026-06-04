@@ -1,0 +1,381 @@
+/* color variables */
+
+:root {
+  --bg: #fff7f1;
+  --card: #ffffff;
+  --ink: #32142f;
+  --muted: #6e5a67;
+  --women: #c84c7d;
+  --men: #4b6cb7;
+  --grid: #eadde3;
+}
+
+/* page layout */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+main {
+  width: min(980px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 44px 0 32px;
+}
+
+/* introduction */
+
+.intro {
+  width: min(840px, 100%);
+  margin: 0 auto 50px;
+}
+
+.page-title {
+  margin-bottom: 20px;
+  font-size: clamp(2.3rem, 5vw, 3.8rem);
+  line-height: 1.05;
+  max-width: 900px;
+}
+
+.intro .lede {
+  margin-bottom: 16px;
+}
+
+.hero, .takeaway, footer {
+  width: min(840px, 100%);
+  margin: 0 auto 24px;
+}
+
+/* text styles */
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--women);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+}
+
+h1 {
+  margin: 0 0 14px;
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  line-height: 1.03;
+  max-width: 920px;
+}
+
+h3 {
+  margin: 0 0 14px;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.03;
+  max-width: 920px;
+}
+
+.lede, .caption, .takeaway p, footer p {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+/* chart containers */
+
+.chart-card {
+  background: var(--card);
+  border-radius: 22px;
+  padding: 22px 22px 12px;
+  box-shadow: 0 18px 50px rgba(50, 20, 47, 0.09);
+  margin: 28px auto;
+}
+
+/* education chart */
+
+#educationChart svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.chart-title {
+  font-size: 22px;
+  font-weight: 800;
+  fill: var(--ink);
+}
+
+.chart-subtitle, .axis text, .note, .legend text {
+  fill: var(--muted);
+  font-size: 12px;
+}
+
+.axis path, .axis line { stroke: var(--grid); }
+.grid line { stroke: var(--grid); stroke-dasharray: 4 4; }
+.grid path { display: none; }
+
+.line-women { stroke: var(--women); }
+.line-men { stroke: var(--men); }
+.point-women { fill: var(--women); }
+.point-men { fill: var(--men); }
+
+.value-label {
+  font-size: 12px;
+  fill: var(--ink);
+  font-weight: 700;
+}
+
+.year-label {
+  fill: var(--ink);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* takeaway cards */
+
+.takeaway {
+  background: rgba(255, 255, 255, 0.62);
+  border-left: 5px solid var(--women);
+  border-radius: 16px;
+  padding: 18px 22px;
+}
+
+.takeaway h2 { margin: 0 0 8px; }
+footer { margin-top: 32px; font-size: 0.95rem; }
+
+/* tooltip */
+
+#tooltip {
+  position: fixed;
+  pointer-events: none;
+  background: rgba(50, 20, 47, 0.95);
+  color: white;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 0.86rem;
+  line-height: 1.35;
+  opacity: 0;
+  max-width: 260px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+}
+
+@media (max-width: 700px) {
+  main { width: min(100% - 20px, 980px); padding-top: 28px; }
+  .chart-card { padding: 12px; }
+}
+
+.label-connector {
+  stroke: #9d8a98;
+  opacity: 0.7;
+}
+
+/* EMPLOYMENT CHART */
+
+.employment-controls {
+  width: 100%;
+  max-width: 700px;
+  margin: 20px auto 0 auto;
+  text-align: center;
+}
+
+.employment-controls label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+#yearSlider {
+  width: 100%;
+}
+
+#employmentChart svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.emp-axis text {
+  fill: var(--muted);
+  font-size: 12px;
+}
+
+.emp-axis path,
+.emp-axis line {
+  stroke: var(--grid);
+}
+
+.emp-grid line {
+  stroke: var(--grid);
+  stroke-dasharray: 4 4;
+}
+
+.emp-grid path {
+  display: none;
+}
+
+.emp-men-line {
+  fill: none;
+  stroke: var(--men);
+  stroke-width: 4;
+}
+
+.emp-women-line {
+  fill: none;
+  stroke: var(--women);
+  stroke-width: 4;
+}
+
+.emp-label {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.emp-men-label {
+  fill: var(--men);
+}
+
+.emp-women-label {
+  fill: var(--women);
+}
+
+.emp-axis-title {
+  fill: var(--muted);
+  font-size: 12px;
+}
+
+/* wage chart */
+
+.gender-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.gender-toggle button {
+  border: none;
+  padding: 10px 22px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+#womenBtn {
+  background: var(--women);
+  color: white;
+}
+
+#menBtn {
+  background: var(--men);
+  color: white;
+}
+
+.gender-toggle button:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+#legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 12px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-boxcolor {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* minimum wage chart */
+
+.minimumwage-legend {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 18px;
+}
+
+.minimumwage-legend .legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.minimumwage-legend .legend-color {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.women-color {
+  background-color: var(--women);
+}
+
+.men-color {
+  background-color: var(--men);
+}
+
+.flourish-title {
+  color: var(--ink);
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.flourish-subtitle {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 10px 0 24px 0;
+}
+
+/* conclusion card */
+
+.conclusion {
+  width: min(840px, 100%);
+  margin: 40px auto;
+  background: var(--women);
+  color: #fff7fa;
+  border-radius: 20px;
+  padding: 28px 32px;
+  box-shadow: 0 18px 50px rgba(50, 20, 47, 0.15);
+}
+
+.conclusion h2 {
+  margin: 0 0 16px;
+  font-size: 2rem;
+  color: white;
+}
+
+.conclusion p {
+  margin-bottom: 18px;
+  color: #fdeaf2;
+  line-height: 1.7;
+}
+
+.conclusion ul {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.conclusion li {
+  margin-bottom: 12px;
+  color: #fdeaf2;
+  line-height: 1.7;
+}
