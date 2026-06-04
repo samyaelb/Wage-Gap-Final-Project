@@ -1,0 +1,9 @@
+education,sex,earnings_2014,earnings_2024,change_dollars,change_percent,ratio_2014,ratio_2024
+Less than high school,Women,409,663,254,62.1,79.1,84.1
+Less than high school,Men,517,788,271,52.4,79.1,84.1
+"High school, no college",Women,578,805,227,39.3,77.0,77.9
+"High school, no college",Men,751,1033,282,37.5,77.0,77.9
+Some college/associate,Women,661,921,260,39.3,75.8,76.2
+Some college/associate,Men,872,1209,337,38.6,75.8,76.2
+Bachelor’s degree or higher,Women,1049,1479,430,41.0,75.7,77.6
+Bachelor’s degree or higher,Men,1385,1907,522,37.7,75.7,77.6
